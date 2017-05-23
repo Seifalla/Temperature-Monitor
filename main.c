@@ -1,5 +1,5 @@
 //****************** EE383lab4.c ***************
-// Program written by: Your Names
+// Program written by: Seifalla Moustafa and Dimitri Mojsejenko
 // Date Created: 11/03/2013 
 // Original Author: Chris Mitchell (cpmitc4@gmail.com)
 // Section 9-10am     TA: Ying Yu
