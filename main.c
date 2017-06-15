@@ -89,7 +89,7 @@ int main(void)
 																// configure PF2 as GPIO
 		GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF0FF)+0x00000000;
 		GPIO_PORTF_AMSEL_R = 0;     // disable analog functionality on PF
-		SysTick_Init(8000000);        // initialize SysTick timer
+		SysTick_Init(40000);        // initialize SysTick timer
 		EnableInterrupts();
 	
     //
@@ -162,15 +162,15 @@ int main(void)
 
 void SysTick_Handler(void){
 	
-	//while (Counts < ui32TempValueC * 10000){
-		//Counts = Counts + 1;}
-	//Counts = 0;
-    
-    if (Counts == 10 * ui32TempValueC) {
-        PF2 ^= 0x04;                // toggle PF2
-        Counts = 0;
-    }
-    Counts = Counts + 1;
+	long num = -10 * ui32TempValueC + 450;
+	
+	if (Counts < num){
+		Counts = Counts + 1;
+	}
+	else{
+		PF2 ^= 0x04; 
+		Counts = 0;
+	}
 
 }
 
